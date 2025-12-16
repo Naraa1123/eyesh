@@ -37,6 +37,6 @@ class ShowResult extends Component
 
     public function render()
     {
-        return view('livewire.student.show-result')->layout('layouts.app');
+        return view('livewire.student.show-result');
     }
 }

@@ -22,7 +22,7 @@
                         <div class="border rounded-lg p-4 {{ $isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200' }}">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="font-medium">
-                                    {{ $index + 1 }}. {{ $question->content }}
+                                    {{ $index + 1 }}. {{ $question->text }}
                                     <span class="text-sm text-gray-500 ml-2">({{ $question->points }} оноо)</span>
                                 </div>
                                 <div>
@@ -52,7 +52,13 @@
                                         @endif
 
                                         <span class="{{ $choice->id == $userChoiceId ? 'font-bold' : '' }} {{ $choice->is_correct ? 'text-green-700' : '' }}">
-                                            {{ $choice->content }}
+                                            {{ $choice->text }}
+                                            @if($choice->id == $userChoiceId)
+                                                <span class="text-xs ml-2 font-semibold {{ $choice->is_correct ? 'text-green-600' : 'text-red-600' }}">(Таны хариулт)</span>
+                                            @endif
+                                            @if($choice->is_correct && $choice->id != $userChoiceId)
+                                                <span class="text-xs ml-2 font-semibold text-green-600">(Зөв хариулт)</span>
+                                            @endif
                                         </span>
                                     </div>
                                 @endforeach

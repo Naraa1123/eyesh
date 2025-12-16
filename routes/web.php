@@ -16,6 +16,7 @@ Route::get('/subjects/{subject}/exams', ExamList::class)->name('exams');
 Route::middleware(['auth'])->group(function () {
     Route::get('/exam/take/{variant}', TakeExam::class)->name('exam.take');
     Route::get('/exam/result/{attempt}', App\Livewire\Student\ShowResult::class)->name('exam.result');
+    Route::get('/exam/history', App\Livewire\Student\ExamHistory::class)->name('exam.history');
 });
 
 Route::view('dashboard', 'dashboard')
